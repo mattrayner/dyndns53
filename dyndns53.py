@@ -35,11 +35,11 @@ class AbuseException(Exception):
 
 
 conf = {
-	'<username>:<password>': {
+	'hogwarts:pf$3fnVTB5': {
 		'hosts': {
-			'<host.example.com.>': {
+			'gateway.rayner.io.': {
 				'aws_region': 'us-west-2',
-				'zone_id': '<MY_ZONE_ID>',
+				'zone_id': 'Z2G6KP3BRILJRG',
 				'record': {
 					'ttl': 60,
 					'type': 'A',
@@ -151,7 +151,7 @@ def _handler(event, context):
 		raise HostnameException()
 
 	try:
-		ip = _parse_ip(event['querystring']['myip'])
+		ip = _parse_ip(event['querystring']['foo'])#event['querystring']['myip'])
 		logger.debug("User supplied IP address: {}".format(ip))
 	except KeyError as e:
 		ip = _parse_ip(event['context']['source-ip'])
